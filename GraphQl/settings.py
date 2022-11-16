@@ -39,10 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'postCreate',
+    'auth_permission',
     'graphene_django',
-    "graphql_auth",
+    'graphql_auth',
     'django_filters',
     'graphql_jwt.refresh_token.apps.RefreshTokenConfig',
+
+    'graphene_graphiql_explorer',
 ]
 
 MIDDLEWARE = [

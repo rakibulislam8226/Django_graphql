@@ -20,26 +20,16 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+
 class Category(models.Model):
-    name=models.CharField(max_length=30)
+    name = models.CharField(max_length=30)
+
     def __str__(self):
         return self.name
-    
+
 
 class ExtendUser(AbstractUser):
-  email = models.EmailField(max_length=50,blank=False,verbose_name='email')
+    email = models.EmailField(max_length=50, blank=False, verbose_name='email')
 
-  USERNAME_FIELD = 'username'
-  EMAIL_FIELD = "email"
-
-
-
-
-
-
-
-
-
-
-
-
+    USERNAME_FIELD = 'username'
+    EMAIL_FIELD = "email"
