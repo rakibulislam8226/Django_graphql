@@ -71,14 +71,17 @@ class CategoryMutation(graphene.Mutation):
 class UpdateCategory(graphene.Mutation):
     class Arguments:
         id = graphene.ID(required=True, description="Update Category ID.")
-        name = graphene.String(required=True, description="Update Category name.")
 
+        name = graphene.String(description="Update Category name.")
+        description = graphene.String()
     category = graphene.Field(CategoryType)
 
     @classmethod
-    def mutate(cls, root, info, name, id):
+    def mutate(cls, root, info, name, id, description=None):
         category = Category.objects.get(id=id)
         category.name = name
+        if description is not None:
+            category.description = description
         category.save()
         return UpdateCategory(category=category)
 
